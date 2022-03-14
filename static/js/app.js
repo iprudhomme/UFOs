@@ -40,7 +40,7 @@ function updateFilters() {
     // 5. If a filter value was entered then add that filterId and value
     // to the filters list. Otherwise, clear that filter from the filters object.
     if (elementValue) {
-    filters[filterId] = elementValue;
+    filters[filterId] = elementValue.toLowerCase();
     } else {
       delete filters[filterId];
     }
@@ -60,7 +60,7 @@ function updateFilters() {
 
     for (const [filterId, filterValue] of Object.entries(filters)) {
       console.log(filterId, filterValue)
-      filteredData = filteredData.filter(row => row[filterId] === filterValue );
+      filteredData = filteredData.filter(row => row[filterId] === filterValue.toLowerCase() );
 
     }
   
